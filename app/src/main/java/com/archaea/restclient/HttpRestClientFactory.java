@@ -15,4 +15,16 @@ public class HttpRestClientFactory {
             return new HttpMockRestClient();
         return new HttpRestClient();
    }
+
+    /**
+     * The method returns the right auth rest client depending on isMock flag
+     *
+     * @param isMock
+     * @return
+     */
+   public static IAuthRestClient getAuthRestClient(boolean isMock){
+       if (isMock)
+           return new AuthRestClient();
+       return new AuthMockRestClient();
+   }
 }
