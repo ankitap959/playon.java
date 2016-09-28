@@ -9,6 +9,32 @@ import org.json.JSONObject;
  */
 public class MockUsersData {
 
+    /**
+     [{
+         "email": "user.one@gmail.com",
+         "username": "userone",
+         "password": "playon@123",
+         "user_guid": "20080282-5fb6-4abb-af8e-246438bd5f43",
+         "profile_pic_link": "somelink ",
+         "facebook_token ": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ "
+         }, {
+         "email ": "user.two @gmail.com ",
+         "username": "usertwo",
+         "password": "playon@123",
+         "user_guid": "a6662028-d1f1-4ed7-8471-af8514e4337 a ",
+         "profile_pic_link ": "somelink ",
+         "facebook_token ": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ "
+         }, {
+         "email": "user.three@gmail.com",
+         "username": "userthree",
+         "password": "playon@123",
+         "user_guid ": "3a2a8bda-ed2b-4431-872b-a158811d5c6a",
+         "profile_pic_link ": "somelink ",
+         "facebook_token ": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"
+     }]
+     *
+     */
+
     private static String users = "[{\\\"email\\\":\\\"user.one@gmail.com\\\",\\\"username\\\":\\\"userone\\\",\\\"password\\\":" +
             "\\\"playon@123\\\"\\\"user_guid\\\":\\\"20080282-5fb6-4abb-af8e-246438bd5f43\\\",\\\"profile_pic_link\\\":\\\"somel" +
             "ink\\\",\\\"facebook_token\\\":\\\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4" +
