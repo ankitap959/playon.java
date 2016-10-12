@@ -1,22 +1,24 @@
 package com.archaea.restclient;
 
-import com.archaea.restclient.teams.ITeamRestClient;
-import com.archaea.restclient.teams.TeamMockRestClient;
+
+import com.archaea.restclient.shops.IShopRestClient;
+import com.archaea.restclient.shops.ShopMockRestClient;
 
 /**
  * Created by vizsatiz on 24-09-2016.
  */
 public class HttpMockRestClient implements IHttpRestClient{
 
-    private ITeamRestClient teamMockRestClient;
+    private IShopRestClient shopMockRestClient;
 
     public HttpMockRestClient()
     {
-        this.teamMockRestClient = new TeamMockRestClient();
+        this.shopMockRestClient = new ShopMockRestClient();
     }
 
-    public ITeamRestClient getTeamMockRestClient(){
-        return this.teamMockRestClient;
+    @Override
+    public IShopRestClient getShopRestClient() {
+        return this.shopMockRestClient;
     }
 
 }
