@@ -12,8 +12,4 @@ public class JsonToObjectMapper {
     public static User toUser(JSONObject user) {
         return null;
     }
-
-    public static Team toTeam(JSONObject team){
-        return null;
-    }
 }
