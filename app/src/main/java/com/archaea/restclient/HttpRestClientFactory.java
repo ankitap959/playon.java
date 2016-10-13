@@ -1,5 +1,9 @@
 package com.archaea.restclient;
 
+import com.archaea.auth.AuthMockRestClient;
+import com.archaea.auth.AuthRestClient;
+import com.archaea.auth.IAuthRestClient;
+
 /**
  * Created by vizsatiz on 24-09-2016.
  */

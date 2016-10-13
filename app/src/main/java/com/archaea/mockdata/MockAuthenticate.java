@@ -18,11 +18,15 @@ public class MockAuthenticate {
         if(user == null){
             throw new Exception("[Unauthorized] Username or Password is incorrect");
         }
-        return new User(user.getString("email"),
+
+        // Fill metadata later
+        return new User(user.getInt("user_id"),
+                user.getString("email"),
                 user.getString("user_guid"),
                 user.getString("facebook_token"),
                 user.getString("profile_pic_link"),
                 user.getString("username"),
-                jwt_sessions);
+                jwt_sessions,
+                new JSONObject());
     }
 }

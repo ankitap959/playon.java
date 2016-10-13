@@ -1,7 +1,5 @@
 package com.archaea.dal;
 
-import com.archaea.restclient.HttpMockRestClient;
-import com.archaea.restclient.HttpRestClient;
 import com.archaea.restclient.HttpRestClientFactory;
 import com.archaea.restclient.IHttpRestClient;
 
@@ -10,11 +8,10 @@ import com.archaea.restclient.IHttpRestClient;
  */
 public class DataAdapter {
 
-   public DataAdapter(boolean isMock)
-   {
-       IHttpRestClient httpRestClient = HttpRestClientFactory.getRestClient(isMock);
-       httpRestClient = isMock ? (HttpRestClient)httpRestClient : (HttpMockRestClient) httpRestClient;
-       // Use the rest client to create remaining adapters
+   private IHttpRestClient httpRestClient;
+
+   public DataAdapter(boolean isMock) {
+       this.httpRestClient = HttpRestClientFactory.getRestClient(isMock);
    }
 
 }

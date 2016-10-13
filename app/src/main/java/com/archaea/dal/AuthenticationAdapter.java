@@ -2,7 +2,7 @@ package com.archaea.dal;
 
 import com.archaea.models.User;
 import com.archaea.restclient.HttpRestClientFactory;
-import com.archaea.restclient.IAuthRestClient;
+import com.archaea.auth.IAuthRestClient;
 
 /**
  * Created by vizsatiz on 24-09-2016.

@@ -1,4 +1,4 @@
-package com.archaea.restclient;
+package com.archaea.auth;
 
 import com.archaea.mockdata.MockAuthenticate;
 import com.archaea.models.User;
