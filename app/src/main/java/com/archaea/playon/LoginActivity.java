@@ -364,7 +364,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             try {
                 // Simulate network access.
                 AuthenticationAdapter authenticationAdapter =
-                        new AuthenticationAdapter(ApplicationConstants.IS_MOCK);
+                        new AuthenticationAdapter(ApplicationConstants.IS_AUTH_MOCK);
                 authenticationAdapter.authenticate(mEmail, mPassword);
                 Thread.sleep(2000);
                 return true;
