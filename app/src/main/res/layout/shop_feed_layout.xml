@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/shopFeedColor">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/shop_feed_item_margin"
+        android:layout_marginRight="@dimen/shop_feed_item_margin"
+        android:layout_marginTop="@dimen/shop_feed_item_margin"
+        android:background="@drawable/shop_feed_rounded_corner"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/shop_feed_item_padding_bottom"
+        android:paddingTop="@dimen/shop_feed_item_padding_top">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/shop_feed_item_padding_left_right"
+            android:paddingRight="@dimen/shop_feed_item_padding_left_right">
+
+            <!--com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/profilePic"
+                android:layout_width="@dimen/shop_feed_item_profile_pic"
+                android:layout_height="@dimen/shop_feed_item_profile_pic"
+                android:scaleType="fitCenter">
+            </com.android.volley.toolbox.NetworkImageView-->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/shop_feed_item_profile_info_padd">
+
+                <TextView
+                    android:id="@+id/shopName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/shop_feed_item_profile_name"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timestamp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FF4081"
+                    android:textSize="@dimen/shop_feed_item_timestamp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/shopTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="@dimen/shop_feed_item_status_pad_left_right"
+            android:paddingRight="@dimen/shop_feed_item_status_pad_left_right"
+            android:paddingTop="@dimen/shop_feed_item_status_pad_top"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/shopDescription"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
+            android:paddingBottom="5dp"
+            android:paddingLeft="@dimen/shop_feed_item_status_pad_left_right"
+            android:paddingRight="@dimen/shop_feed_item_status_pad_left_right"
+            android:paddingTop="@dimen/shop_feed_item_status_pad_top"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</LinearLayout>
