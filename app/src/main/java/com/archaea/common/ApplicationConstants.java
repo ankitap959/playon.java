@@ -6,4 +6,5 @@ package com.archaea.common;
 public interface ApplicationConstants {
 
     public static final boolean IS_AUTH_MOCK = true;
+    public static final boolean IS_DATA_MOCK = true;
 }

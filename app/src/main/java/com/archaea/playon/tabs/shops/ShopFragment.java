@@ -3,11 +3,22 @@ package com.archaea.playon.tabs.shops;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.archaea.common.ApplicationConstants;
+import com.archaea.dal.DataAdapter;
+import com.archaea.models.Shop;
 import com.archaea.playon.R;
+import com.archaea.playon.adapters.ShopListAdapter;
+
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,8 +74,21 @@ public class ShopFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shop, container, false);
+        final View fragmentView = inflater.inflate(R.layout.fragment_shop, container, false);
+
+        RecyclerView recyclerView = (RecyclerView) fragmentView.findViewById(R.id.shopFeedList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(mLayoutManager);
+        DataAdapter dataAdapter = new DataAdapter(ApplicationConstants.IS_DATA_MOCK);
+        List<Shop> shopList = new ArrayList<>();
+        try {
+            shopList = dataAdapter.getHttpRestClient().getShopRestClient().getAllShopsNearBy("", "");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        ShopListAdapter shopListAdapter = new ShopListAdapter(shopList);
+        recyclerView.setAdapter(shopListAdapter);
+        return  fragmentView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

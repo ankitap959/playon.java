@@ -14,4 +14,11 @@ public class DataAdapter {
        this.httpRestClient = HttpRestClientFactory.getRestClient(isMock);
    }
 
+    public IHttpRestClient getHttpRestClient() {
+        return httpRestClient;
+    }
+
+    public void setHttpRestClient(IHttpRestClient httpRestClient) {
+        this.httpRestClient = httpRestClient;
+    }
 }
