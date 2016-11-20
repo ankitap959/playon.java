@@ -17,13 +17,14 @@ import com.archaea.models.Shop;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by vizsatiz on 13-10-2016.
  */
-public class ShopRestClient implements IShopRestClient{
+public abstract class ShopRestClient implements IShopRestClient{
 
     private List<Shop> shopList;
 
@@ -34,6 +35,7 @@ public class ShopRestClient implements IShopRestClient{
             public void onResponse(JSONArray response) {
                 try {
                     shopList = Shop.JsonArrayToShopArrayListConverter(response);
+                    onSuccess((ArrayList<Shop>) shopList);
                 } catch (JSONException e) {
                     ExceptionHandler.handleExceptions(e);
                 }
@@ -42,6 +44,7 @@ public class ShopRestClient implements IShopRestClient{
             @Override
             public void onErrorResponse(VolleyError error) {
                 ExceptionHandler.handleExceptions(error);
+                onError();
             }
         }){
             @Override
@@ -55,5 +58,9 @@ public class ShopRestClient implements IShopRestClient{
         requestQueue.add(shopListRequest);
         return shopList;
     }
+
+    public abstract void onSuccess(ArrayList<Shop> shopList);
+
+    public abstract void onError();
 
 }

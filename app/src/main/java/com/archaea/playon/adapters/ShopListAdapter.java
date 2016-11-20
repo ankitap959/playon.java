@@ -9,16 +9,20 @@ import android.widget.TextView;
 import com.archaea.models.Shop;
 import com.archaea.playon.R;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by vizsatiz on 25-10-2016.
  */
 public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
 
-    private List<Shop> shopFeedItems;
+    private ArrayList<Shop> shopFeedItems;
 
-    public ShopListAdapter(List<Shop> shopFeedItems) {
+    public void setShopFeedItems(ArrayList<Shop> shopFeedItems) {
+        this.shopFeedItems = shopFeedItems;
+    }
+
+    public ShopListAdapter(ArrayList<Shop> shopFeedItems) {
         this.shopFeedItems = shopFeedItems;
     }
 

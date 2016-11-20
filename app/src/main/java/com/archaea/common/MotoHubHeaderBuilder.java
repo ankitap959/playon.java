@@ -1,5 +1,7 @@
 package com.archaea.common;
 
+import com.archaea.models.AuthSession;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class MotoHubHeaderBuilder {
     }
 
     public void addXMotoHubAuthHeader() {
-        this.headers.put("X-MotoHub-Authorization", "");
+        this.headers.put("X-MotoHub-Authorization", AuthSession.getAuthSession().getxMotoHubAuthorization());
     }
 
 }
