@@ -82,7 +82,7 @@ public class ShopFragment extends Fragment {
         DataAdapter dataAdapter = new DataAdapter(ApplicationConstants.IS_DATA_MOCK);
         List<Shop> shopList = new ArrayList<>();
         try {
-            shopList = dataAdapter.getHttpRestClient().getShopRestClient().getAllShopsNearBy("", "");
+            shopList = dataAdapter.getHttpRestClient().getShopRestClient().getAllShopsNearBy("", "", this.getActivity());
         } catch (JSONException e) {
             e.printStackTrace();
         }

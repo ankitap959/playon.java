@@ -1,5 +1,7 @@
 package com.archaea.restclient.shops;
 
+import android.app.Activity;
+
 import com.archaea.mockdata.MockShopData;
 import com.archaea.models.Shop;
 
@@ -15,7 +17,7 @@ import java.util.List;
 public class ShopMockRestClient  implements IShopRestClient{
 
     @Override
-    public List<Shop> getAllShopsNearBy(String cityName, String locality) throws JSONException {
+    public List<Shop> getAllShopsNearBy(String cityName, String locality, Activity currentActivity) throws JSONException {
         JSONArray shopsJsonArray = MockShopData.getAllShops();
         return Shop.JsonArrayToShopArrayListConverter(shopsJsonArray);
     }

@@ -1,5 +1,7 @@
 package com.archaea.restclient.shops;
 
+import android.app.Activity;
+
 import com.archaea.models.Shop;
 
 import org.json.JSONException;
@@ -11,6 +13,6 @@ import java.util.List;
  */
 public interface IShopRestClient {
 
-    public List<Shop> getAllShopsNearBy(String cityName, String locality) throws JSONException;
+    public List<Shop> getAllShopsNearBy(String cityName, String locality, Activity currentActivity) throws JSONException;
 
 }
