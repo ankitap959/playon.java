@@ -9,16 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.archaea.common.ApplicationConstants;
-import com.archaea.dal.DataAdapter;
 import com.archaea.models.Shop;
 import com.archaea.playon.R;
 import com.archaea.playon.adapters.ShopListAdapter;
-
-import org.json.JSONException;
+import com.archaea.restclient.shops.ShopRestClient;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,18 +72,25 @@ public class ShopFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View fragmentView = inflater.inflate(R.layout.fragment_shop, container, false);
 
-        RecyclerView recyclerView = (RecyclerView) fragmentView.findViewById(R.id.shopFeedList);
+        final RecyclerView recyclerView = (RecyclerView) fragmentView.findViewById(R.id.shopFeedList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        DataAdapter dataAdapter = new DataAdapter(ApplicationConstants.IS_DATA_MOCK);
-        List<Shop> shopList = new ArrayList<>();
-        try {
-            shopList = dataAdapter.getHttpRestClient().getShopRestClient().getAllShopsNearBy("", "");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        ShopListAdapter shopListAdapter = new ShopListAdapter(shopList);
+        ArrayList<Shop> shopList = new ArrayList<>();
+        final ShopListAdapter shopListAdapter = new ShopListAdapter(shopList);
         recyclerView.setAdapter(shopListAdapter);
+        ShopRestClient shopRestClient = new ShopRestClient() {
+            @Override
+            public void onSuccess(ArrayList<Shop> shopList) {
+                shopListAdapter.setShopFeedItems(shopList);
+                shopListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onError() {
+                // error
+            }
+        };
+        shopRestClient.getAllShopsNearBy("", "", this.getActivity());
         return  fragmentView;
     }
 
@@ -97,17 +100,6 @@ public class ShopFragment extends Fragment {
             mListener.onFragmentInteraction(uri);
         }
     }
-
-    /**@Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }*/
 
     @Override
     public void onDetach() {

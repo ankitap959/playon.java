@@ -1,7 +1,6 @@
 package com.archaea.restclient;
 
 import com.archaea.auth.AuthMockRestClient;
-import com.archaea.auth.AuthRestClient;
 import com.archaea.auth.IAuthRestClient;
 
 /**
@@ -28,7 +27,7 @@ public class HttpRestClientFactory {
      */
    public static IAuthRestClient getAuthRestClient(boolean isMock){
        if (isMock)
-           return new AuthRestClient();
-       return new AuthMockRestClient();
+           return new AuthMockRestClient();
+       return null;
    }
 }

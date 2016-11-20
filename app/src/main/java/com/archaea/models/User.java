@@ -1,5 +1,6 @@
 package com.archaea.models;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -8,48 +9,13 @@ import org.json.JSONObject;
 public class User {
 
     private String email;
-    private int user_id;
     private String userGuid;
     private String username;
-    private String profilePicLink;
-    private String facebookToken;
-    private String claimsToken;
-    private JSONObject profileMetadata;
 
-    public User(int user_id, String email, String userGuid, String facebookToken, String profilePicLink, String username, String claimsToken
-    ,JSONObject profileMetadata) {
-        this.user_id = user_id;
+    public User(String email, String userGuid, String username) {
         this.email = email;
         this.userGuid = userGuid;
-        this.facebookToken = facebookToken;
-        this.profilePicLink = profilePicLink;
         this.username = username;
-        this.claimsToken = claimsToken;
-        this.profileMetadata = profileMetadata;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public JSONObject getProfileMetadata() {
-        return profileMetadata;
-    }
-
-    public void setProfileMetadata(JSONObject profileMetadata) {
-        this.profileMetadata = profileMetadata;
-    }
-
-    public String getClaimsToken() {
-        return claimsToken;
-    }
-
-    public void setClaimsToken(String claimsToken) {
-        this.claimsToken = claimsToken;
     }
 
     public String getUserGuid() {
@@ -68,14 +34,6 @@ public class User {
         this.email = email;
     }
 
-    public String getFacebookToken() {
-        return facebookToken;
-    }
-
-    public void setFacebookToken(String facebookToken) {
-        this.facebookToken = facebookToken;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -84,11 +42,9 @@ public class User {
         this.username = username;
     }
 
-    public String getProfilePicLink() {
-        return profilePicLink;
-    }
-
-    public void setProfilePicLink(String profilePicLink) {
-        this.profilePicLink = profilePicLink;
+    public static User userJsonToObjectConverter(JSONObject userJsonObject) throws JSONException {
+        return new User(userJsonObject.getString("email"),
+                        userJsonObject.getString("user_guid"),
+                        userJsonObject.getString("username"));
     }
 }

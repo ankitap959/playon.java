@@ -1,11 +1,14 @@
 package com.archaea.auth;
 
-import com.archaea.models.User;
+import android.app.Activity;
+
+import com.archaea.models.AuthSession;
 
 /**
  * Created by vizsatiz on 25-09-2016.
  */
 public interface IAuthRestClient {
 
-    public User authenticate(String email, String password) throws Exception;
+    public AuthSession authenticate(String email, String password, Activity currentActivity) throws Exception;
+
 }

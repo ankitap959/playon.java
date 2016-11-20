@@ -52,12 +52,10 @@ public class MockShopData {
 
     public static JSONArray getAllShops() throws JSONException {
      JSONObject account_one = new JSONObject();
-     account_one.put("shopId", 1);
-     account_one.put("shopGuid", "2119a271-a820-4d1a-9051-73529e6e5b8f");
-     account_one.put("ownerId", 2);
-     account_one.put("shopType", "SERVICE_SHOP");
-     account_one.put("shopName", "Ente Kada");
-     account_one.put("shopDescription", "efesrg ewtfgwer r3fetf");
+     account_one.put("shop_guid", "2119a271-a820-4d1a-9051-73529e6e5b8f");
+     account_one.put("shop_type", "SERVICE_SHOP");
+     account_one.put("shop_name", "Ente Kada");
+     account_one.put("description", "efesrg ewtfgwer r3fetf");
      account_one.put("address", "Junction name, 21ncdknvdkncvl00 Road");
      account_one.put("street", "ncdjkvnfo");
      account_one.put("city", "Kochi");
@@ -66,9 +64,7 @@ public class MockShopData {
      account_one.put("phone", "08909");
      account_one.put("mobile", "9618198034706");
      account_one.put("email", "vosjiojdo@jbwi.com");
-     account_one.put("rating", "4");
-     account_one.put("pinCode", "78978");
-     account_one.put("no_of_wagon_service_per_day", 30);
+     account_one.put("pin_code", "78978");
         return new JSONArray().put(account_one);
     }
     

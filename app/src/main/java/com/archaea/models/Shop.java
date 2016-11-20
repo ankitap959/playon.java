@@ -12,9 +12,7 @@ import java.util.List;
  */
 public class Shop {
 
-    private int shopId;
     private String shopGuid;
-    private int ownerId;
     private String shopName;
     private String shopType;
     private String shopDescription;
@@ -24,26 +22,21 @@ public class Shop {
     private String locality;
     private String district;
     private String phone;
+
     private String mobile;
     private String email;
     private String pinCode;
-    private int no_of_wagon_service_per_day;
-    private int rating;
 
-    public Shop(String shopName, int shopId, String shopGuid,String shopType, String shopDescription,
-                int rating, String pinCode, String phone, int ownerId, int no_of_wagon_service_per_day, String mobile,
+    public Shop(String shopName, String shopGuid, String shopType, String shopDescription,
+                String pinCode, String phone, String mobile,
                 String locality, String email, String district, String city, String address, String street) {
         this.street = street;
         this.shopType = shopType;
         this.shopName = shopName;
-        this.shopId = shopId;
         this.shopGuid = shopGuid;
         this.shopDescription = shopDescription;
-        this.rating = rating;
         this.pinCode = pinCode;
         this.phone = phone;
-        this.ownerId = ownerId;
-        this.no_of_wagon_service_per_day = no_of_wagon_service_per_day;
         this.mobile = mobile;
         this.locality = locality;
         this.email = email;
@@ -100,22 +93,6 @@ public class Shop {
         this.mobile = mobile;
     }
 
-    public int getNo_of_wagon_service_per_day() {
-        return no_of_wagon_service_per_day;
-    }
-
-    public void setNo_of_wagon_service_per_day(int no_of_wagon_service_per_day) {
-        this.no_of_wagon_service_per_day = no_of_wagon_service_per_day;
-    }
-
-    public int getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -132,14 +109,6 @@ public class Shop {
         this.pinCode = pinCode;
     }
 
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
     public String getShopDescription() {
         return shopDescription;
     }
@@ -154,14 +123,6 @@ public class Shop {
 
     public void setShopGuid(String shopGuid) {
         this.shopGuid = shopGuid;
-    }
-
-    public int getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(int shopId) {
-        this.shopId = shopId;
     }
 
     public String getShopName() {
@@ -190,16 +151,12 @@ public class Shop {
 
     public static Shop JsonToShopConverter(JSONObject shopJson) throws JSONException {
         return new Shop(
-                shopJson.getString("shopName"),
-                shopJson.getInt("shopId"),
-                shopJson.getString("shopGuid"),
-                shopJson.getString("shopType"),
-                shopJson.getString("shopDescription"),
-                shopJson.getInt("rating"),
-                shopJson.getString("pinCode"),
+                shopJson.getString("shop_name"),
+                shopJson.getString("shop_guid"),
+                shopJson.getString("shop_type"),
+                shopJson.getString("description"),
+                shopJson.getString("pin_code"),
                 shopJson.getString("phone"),
-                shopJson.getInt("ownerId"),
-                shopJson.getInt("no_of_wagon_service_per_day"),
                 shopJson.getString("mobile"),
                 shopJson.getString("locality"),
                 shopJson.getString("email"),

@@ -1,7 +1,9 @@
 package com.archaea.auth;
 
+import android.app.Activity;
+
 import com.archaea.mockdata.MockAuthenticate;
-import com.archaea.models.User;
+import com.archaea.models.AuthSession;
 
 /**
  * Created by vizsatiz on 25-09-2016.
@@ -9,7 +11,7 @@ import com.archaea.models.User;
 public class AuthMockRestClient implements  IAuthRestClient{
 
     @Override
-    public User authenticate(String email, String password) throws Exception {
+    public AuthSession authenticate(String email, String password, Activity currentActivity) throws Exception {
         return MockAuthenticate.authenticate(email, password);
     }
 

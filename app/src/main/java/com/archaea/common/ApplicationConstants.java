@@ -5,6 +5,14 @@ package com.archaea.common;
  */
 public interface ApplicationConstants {
 
-    public static final boolean IS_AUTH_MOCK = true;
-    public static final boolean IS_DATA_MOCK = true;
+    public static final boolean IS_AUTH_MOCK = false;
+    public static final boolean IS_DATA_MOCK = false;
+
+
+    // motohub urls
+    public static final String BASE_URL = "http://10.10.1.79:9080";
+    public static final String API_VERSION = "/api/v1_0";
+    public static final String SHOPS = "/shops";
+    public static final String AUTHENTICATE_RUNTIME_USERS = "/authenticate";
+
 }
