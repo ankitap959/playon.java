@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:text="No active chats exist"
+        android:text="No shops found in your area"
         android:textSize="15sp"
         android:id="@+id/no_task"
         android:gravity="center"

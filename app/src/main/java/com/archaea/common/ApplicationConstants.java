@@ -10,7 +10,7 @@ public interface ApplicationConstants {
 
 
     // motohub urls
-    public static final String BASE_URL = "http://10.10.1.79:9080";
+    public static final String BASE_URL = "http://192.168.174.1:9080";
     public static final String API_VERSION = "/api/v1_0";
     public static final String SHOPS = "/shops";
     public static final String AUTHENTICATE_RUNTIME_USERS = "/authenticate";
