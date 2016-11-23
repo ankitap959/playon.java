@@ -76,7 +76,7 @@ public class ShopFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         ArrayList<Shop> shopList = new ArrayList<>();
-        final ShopListAdapter shopListAdapter = new ShopListAdapter(shopList);
+        final ShopListAdapter shopListAdapter = new ShopListAdapter(shopList, getActivity());
         recyclerView.setAdapter(shopListAdapter);
         ShopRestClient shopRestClient = new ShopRestClient() {
             @Override

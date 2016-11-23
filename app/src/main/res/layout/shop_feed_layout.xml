@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shop_feed_item_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,12 +23,12 @@
             android:paddingLeft="@dimen/shop_feed_item_padding_left_right"
             android:paddingRight="@dimen/shop_feed_item_padding_left_right">
 
-            <!--com.android.volley.toolbox.NetworkImageView
+            <com.android.volley.toolbox.NetworkImageView
                 android:id="@+id/profilePic"
                 android:layout_width="@dimen/shop_feed_item_profile_pic"
                 android:layout_height="@dimen/shop_feed_item_profile_pic"
                 android:scaleType="fitCenter">
-            </com.android.volley.toolbox.NetworkImageView-->
+            </com.android.volley.toolbox.NetworkImageView>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -72,5 +73,63 @@
             android:paddingTop="@dimen/shop_feed_item_status_pad_top"
             android:textStyle="italic" />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="0.5dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="0.5dp"
+            android:background="#c0c0c0" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayout007"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:id="@+id/promote_button"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <TextView
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#0000"
+                    android:clickable="false"
+                    android:paddingTop="3dp"
+                    android:text="Promote"
+                    android:textAllCaps="false"
+                    android:textColor="#B6B3B2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/book_a_service"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <TextView
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#0000"
+                    android:clickable="false"
+                    android:paddingTop="3dp"
+                    android:text="book"
+                    android:textAllCaps="false"
+                    android:textColor="#B6B3B2" />
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
