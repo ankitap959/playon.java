@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#174ca8"
+    android:layout_height="match_parent"
+    android:paddingBottom="2dp"
+    android:paddingTop="2dp" android:layout_width="wrap_content">
+
+    <TextView
+        android:id="@+id/day"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="@dimen/item_dob_width"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:textColor="@android:color/white"
+        android:background="#174ca8"
+        android:textSize="15sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/shopName"
+        android:fontFamily="sans-serif-light"
+        android:layout_width="@dimen/item_dob_width"
+        android:layout_height="wrap_content"
+        android:background="#174ca8"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/month"
+        android:fontFamily="sans-serif-light"
+        android:paddingTop="2dp"
+        android:layout_width="@dimen/item_dob_width"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="#174ca8"
+        android:textSize="15sp"
+        android:gravity="center"/>
+
+</LinearLayout>
