@@ -5,20 +5,25 @@ package com.archaea.models;
  */
 public class BookingCalender {
 
+    private int type;
+    private String number;
     private String day;
-    private int date;
+    private String month;
 
-    public BookingCalender(int date, String day) {
-        this.date = date;
-        this.day = day;
+    public String getNumber() {
+        return number;
     }
 
-    public int getDate() {
-        return date;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getDay() {
@@ -27,5 +32,13 @@ public class BookingCalender {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 }

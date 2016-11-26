@@ -1,6 +1,6 @@
 package com.archaea.playon.adapters;
 
-import android.app.Activity;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,57 +12,95 @@ import com.archaea.playon.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by vizsatiz on 24-11-2016.
- */
-public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalenderListViewHolder>{
+public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalenderAdapter.DateViewHolder> {
+
+    private static final String TAG = BookingCalenderAdapter.class.getSimpleName();
+    private ArrayList<BookingCalender> dateDataList;
 
 
-    private ArrayList<BookingCalender> bookingCalenderItems;
-    private Activity currentActivity;
+    public static final int VIEW_TYPE_PADDING = 1;
+    public static final int VIEW_TYPE_ITEM = 2;
+    private int paddingWidthDate = 0;
+
+    private int selectedItem = -1;
+
+    public BookingCalenderAdapter(ArrayList<BookingCalender> dateData, int paddingWidthDate) {
+        this.dateDataList = dateData;
+        this.paddingWidthDate = paddingWidthDate;
+
+    }
+
 
     @Override
-    public int getItemViewType(int position) {
-        return super.getItemViewType(position);
-    }
+    public DateViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_ITEM) {
+            final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.calender_feed,
+                    parent, false);
+            return new DateViewHolder(view);
+        } else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.calender_feed,
+                    parent, false);
 
-    public void setShopFeedItems(ArrayList<BookingCalender> bookingCalenderItems) {
-        this.bookingCalenderItems = bookingCalenderItems;
-    }
-
-    public BookingCalenderAdapter(ArrayList<BookingCalender> bookingCalenderItems, Activity currentActivity) {
-        this.bookingCalenderItems = bookingCalenderItems;
-        this.currentActivity = currentActivity;
-    }
-
-    @Override
-    public BookingCalenderListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.calender_feed, parent, false);
-        return  new BookingCalenderListViewHolder(v);
+            RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+            layoutParams.width = paddingWidthDate;
+            view.setLayoutParams(layoutParams);
+            return new DateViewHolder(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(BookingCalenderListViewHolder holder, int position) {
-        final BookingCalender bookingCalender = bookingCalenderItems.get(position);
-        // TODO change the shop title to whatever appropriate (probably an image)
-        holder.shopName.setText(bookingCalender.getDay());
+    public void onBindViewHolder(DateViewHolder holder, int position) {
+        BookingCalender labelerDate = dateDataList.get(position);
+        if (getItemViewType(position) == VIEW_TYPE_ITEM) {
+            holder.tvDate.setText(labelerDate.getNumber());
+            holder.day.setText(labelerDate.getDay());
+            holder.month.setText(labelerDate.getMonth());
+            holder.tvDate.setVisibility(View.VISIBLE);
+            if (position == selectedItem) {
+                holder.tvDate.setTextColor(Color.parseColor("#76FF03"));
+            } else {
+                holder.tvDate.setTextColor(Color.WHITE);
+            }
+        } else {
+            holder.tvDate.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setSelectedItem(int selecteditem) {
+        this.selectedItem = selecteditem;
+        notifyDataSetChanged();
+    }
+
+    public int getSelectedItem() {
+        return this.selectedItem;
     }
 
     @Override
     public int getItemCount() {
-        return bookingCalenderItems.size();
+        return dateDataList.size();
     }
-}
 
-// Provide a reference to the views for each data item
-// Complex data items may need more than one view per item, and
-// you provide access to all the views for a data item in a view holder
-class BookingCalenderListViewHolder extends RecyclerView.ViewHolder {
-    // each data item is just a string in this case
-    public TextView shopName;
+    @Override
+    public int getItemViewType(int position) {
+        BookingCalender labelerDate = dateDataList.get(position);
+        if (labelerDate.getType() == VIEW_TYPE_PADDING) {
+            return VIEW_TYPE_PADDING;
+        } else {
+            return VIEW_TYPE_ITEM;
+        }
 
-    public BookingCalenderListViewHolder(View v) {
-        super(v);
-        this.shopName = (TextView) v.findViewById(R.id.shopName);
+    }
+
+    public class DateViewHolder extends RecyclerView.ViewHolder {
+        public TextView tvDate;
+        public TextView day;
+        public TextView month;
+
+        public DateViewHolder(View itemView) {
+            super(itemView);
+            tvDate = (TextView) itemView.findViewById(R.id.shopName);
+            day = (TextView) itemView.findViewById(R.id.day);
+            month = (TextView) itemView.findViewById(R.id.month);
+        }
     }
 }
