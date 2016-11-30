@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
+import com.archaea.common.CircularNetworkImageView;
 import com.archaea.common.ImageFeedController;
 import com.archaea.models.LruBitmapCache;
 import com.archaea.models.Shop;
@@ -89,11 +89,11 @@ class ShopListViewHolder extends RecyclerView.ViewHolder {
     public TextView shopTitle;
     public TextView shopDescription;
     public LinearLayout shopTab;
-    public NetworkImageView shopProfilePic;
+    public CircularNetworkImageView shopProfilePic;
 
     public ShopListViewHolder(View v) {
         super(v);
         shopName = (TextView) v.findViewById(R.id.shop_name);
-        shopProfilePic = (NetworkImageView) v.findViewById(R.id.profile_picture);
+        shopProfilePic = (CircularNetworkImageView) v.findViewById(R.id.profile_picture);
     }
 }

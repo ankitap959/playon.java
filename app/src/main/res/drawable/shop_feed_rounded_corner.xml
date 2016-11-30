@@ -13,7 +13,11 @@
     </stroke>
 
     <!-- Here is the corner radius -->
-    <corners android:radius="@dimen/shop_feed_item_corner_radius" >
+    <!--corners android:radius="@dimen/shop_feed_item_corner_radius" -->
+    <corners android:topLeftRadius="5dp"
+        android:bottomLeftRadius="5dp"
+        android:bottomRightRadius="2dp"
+        android:topRightRadius="2dp">
     </corners>
 
 </shape>

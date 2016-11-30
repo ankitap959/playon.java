@@ -9,21 +9,22 @@
     <LinearLayout
         android:padding="2dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/profile_pic_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.06"
             android:orientation="horizontal">
 
-            <com.android.volley.toolbox.NetworkImageView
+            <com.archaea.common.CircularNetworkImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:scaleType="fitCenter">
-            </com.android.volley.toolbox.NetworkImageView>
+            </com.archaea.common.CircularNetworkImageView>
 
         </LinearLayout>
 
@@ -38,7 +39,7 @@
             <TextView
                 android:id="@+id/shop_name"
                 android:padding="2dp"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"/>
 
