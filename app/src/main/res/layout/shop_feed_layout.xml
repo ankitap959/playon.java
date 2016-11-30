@@ -16,7 +16,7 @@
             android:id="@+id/profile_pic_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.06"
+            android:layout_weight="0.04"
             android:orientation="horizontal">
 
             <com.archaea.common.CircularNetworkImageView
@@ -38,6 +38,8 @@
 
             <TextView
                 android:id="@+id/shop_name"
+                android:fontFamily="sans-serif-thin"
+                android:textStyle="bold"
                 android:padding="2dp"
                 android:textSize="20sp"
                 android:layout_width="fill_parent"
