@@ -29,7 +29,7 @@ class ServicePlans {
 
     private ServicePlans() {
         this.servicePlanFragments = new ArrayList<>();
-        this.servicePlanFragments.add(new PeriodicServicePlan());
+        this.servicePlanFragments.add(new ServicePlanFragment());
     }
 
     public static ServicePlans getInstance() {
