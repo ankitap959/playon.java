@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle" >
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <!-- view background color -->
-    <solid android:color="@color/shopFeedItemBackgroundColor" >
-    </solid>
+    <solid android:color="#A5FFFFFF" />
 
-    <!-- view border color and width -->
     <stroke
-        android:width="@dimen/shop_feed_item_border_width"
-        android:color="@color/shopFeedItemBorderColor" >
-    </stroke>
+        android:width="0dp"
+        android:color="#00FFFFFF" />
 
-    <!-- Here is the corner radius -->
-    <corners android:radius="@dimen/shop_feed_item_corner_radius" >
-    </corners>
+    <padding
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp" />
+
+    <corners
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp" />
 
 </shape>
