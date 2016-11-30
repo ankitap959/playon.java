@@ -54,6 +54,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
     public void onBindViewHolder(ShopListViewHolder holder, int position) {
         final Shop shop = shopFeedItems.get(position);
         holder.shopName.setText(shop.getShopName());
+        holder.shopDescription.setText(shop.getShopDescription());
         if (imageLoader == null)
             imageLoader = ImageFeedController.getInstance().getImageLoader();
         holder.shopProfilePic.setImageUrl("http://192.168.174.1:9080/assets/img/blue-bg.jpg", imageLoader);
@@ -94,6 +95,7 @@ class ShopListViewHolder extends RecyclerView.ViewHolder {
     public ShopListViewHolder(View v) {
         super(v);
         shopName = (TextView) v.findViewById(R.id.shop_name);
+        shopDescription = (TextView) v.findViewById(R.id.shop_description);
         shopProfilePic = (CircularNetworkImageView) v.findViewById(R.id.profile_picture);
     }
 }

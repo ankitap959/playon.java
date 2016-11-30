@@ -5,13 +5,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.archaea.playon.R;
 
 /**
  * Created by vizsatiz on 30-11-2016.
@@ -19,7 +19,7 @@ import com.android.volley.toolbox.NetworkImageView;
 public class CircularNetworkImageView extends NetworkImageView {
 
     Context mContext;
-    private int borderWidth = 4;
+    private int borderWidth = 8;
     private int viewWidth;
     private int viewHeight;
     private Bitmap image;
@@ -49,12 +49,11 @@ public class CircularNetworkImageView extends NetworkImageView {
         // init paint
         paint = new Paint();
         paint.setAntiAlias(true);
-
         paintBorder = new Paint();
-        setBorderColor(Color.WHITE);
+        setBorderColor(getResources().getColor(R.color.colorImageBorder));
         paintBorder.setAntiAlias(true);
         this.setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
-        paintBorder.setShadowLayer(4.0f, 4.0f, 4.0f, Color.RED);
+        paintBorder.setShadowLayer(4.0f, 0.0f, 0.0f, getResources().getColor(R.color.colorAccent));
     }
 
     public void setBorderWidth(int borderWidth)
@@ -96,7 +95,7 @@ public class CircularNetworkImageView extends NetworkImageView {
             // circleCenter is the x or y of the view's center
             // radius is the radius in pixels of the cirle to be drawn
             // paint contains the shader that will texture the shape
-            canvas.drawCircle(circleCenter + borderWidth, circleCenter + borderWidth, circleCenter + borderWidth - 4.0f, paintBorder);
+            canvas.drawCircle(circleCenter + borderWidth, circleCenter + borderWidth, (float) ((float)circleCenter + (1.3 * (float)borderWidth) -4.0f), paintBorder);
             canvas.drawCircle(circleCenter + borderWidth, circleCenter + borderWidth, circleCenter - 4.0f, paint);
         }
     }
