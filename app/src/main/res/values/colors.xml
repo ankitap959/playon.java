@@ -7,4 +7,6 @@
     <color name="shopFeedColor">#cee094</color>
     <color name="shopFeedItemBackgroundColor">#ffffff</color>
     <color name="shopFeedItemBorderColor">#ffffff</color>
+    <color name="duskYellow">#f2b01e</color>
+    <color name="lightGray">#afafaf</color>
 </resources>

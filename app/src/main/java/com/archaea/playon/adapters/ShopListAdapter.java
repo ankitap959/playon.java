@@ -57,7 +57,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
         holder.shopDescription.setText(shop.getShopDescription());
         if (imageLoader == null)
             imageLoader = ImageFeedController.getInstance().getImageLoader();
-        holder.shopProfilePic.setImageUrl("http://192.168.174.1:9080/assets/img/blue-bg.jpg", imageLoader);
+        holder.shopProfilePic.setImageUrl("http://192.168.174.1:9080/assets/img/app/feed/test-image.png", imageLoader);
     }
 
     @Override
