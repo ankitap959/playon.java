@@ -20,4 +20,6 @@
     <string name="title_activity_shop_details">ShopDetailsActivity</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_booking">BookingActivity</string>
+    <string name="BookButtonString">Book</string>
+    <string name="KnowMoreString">Book</string>
 </resources>
