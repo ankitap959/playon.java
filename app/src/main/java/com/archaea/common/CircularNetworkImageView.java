@@ -50,7 +50,7 @@ public class CircularNetworkImageView extends NetworkImageView {
         paint = new Paint();
         paint.setAntiAlias(true);
         paintBorder = new Paint();
-        setBorderColor(getResources().getColor(R.color.colorImageBorder));
+        setBorderColor(getResources().getColor(R.color.colorPrimaryDark));
         paintBorder.setAntiAlias(true);
         this.setLayerType(LAYER_TYPE_SOFTWARE, paintBorder);
         paintBorder.setShadowLayer(4.0f, 0.0f, 0.0f, getResources().getColor(R.color.colorAccent));
