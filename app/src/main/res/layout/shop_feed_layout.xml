@@ -119,14 +119,14 @@
                     android:text="10% off"
                     android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/duskYellow"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"/>
 
                 <Button
                     android:layout_gravity="left"
-                    android:id="@+id/know_more"
+                    android:id="@+id/book_button"
                     android:text="@string/KnowMoreString"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
