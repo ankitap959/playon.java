@@ -7,6 +7,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
+import com.archaea.models.LruBitmapCache;
 
 public class ShopDetailsActivity extends AppCompatActivity {
 
@@ -27,6 +33,10 @@ public class ShopDetailsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        ImageLoader imageLoader = new ImageLoader(Volley.newRequestQueue(this), new LruBitmapCache());
+        NetworkImageView coverPhoto = (NetworkImageView) findViewById(R.id.shop_cover_photo);
+        coverPhoto.setImageUrl("http://192.168.174.1:9080/assets/img/app/typography/typo03.png", imageLoader);
+        coverPhoto.setScaleType(ImageView.ScaleType.FIT_XY);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

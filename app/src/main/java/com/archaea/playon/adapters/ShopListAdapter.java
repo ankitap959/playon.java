@@ -1,11 +1,12 @@
 package com.archaea.playon.adapters;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -15,6 +16,7 @@ import com.archaea.common.ImageFeedController;
 import com.archaea.models.LruBitmapCache;
 import com.archaea.models.Shop;
 import com.archaea.playon.R;
+import com.archaea.playon.ShopDetailsActivity;
 
 import java.util.ArrayList;
 
@@ -24,9 +26,8 @@ import java.util.ArrayList;
 public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
 
     private ArrayList<Shop> shopFeedItems;
-    private Activity currentActivity;
-    LruBitmapCache mLruBitmapCache;
     private ImageLoader imageLoader;
+    private Context context;
 
     @Override
     public int getItemViewType(int position) {
@@ -39,7 +40,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
 
     public ShopListAdapter(ArrayList<Shop> shopFeedItems, Activity currentActivity) {
         this.shopFeedItems = shopFeedItems;
-        this.currentActivity = currentActivity;
+        this.context = currentActivity;
         imageLoader = new ImageLoader(Volley.newRequestQueue(currentActivity), new LruBitmapCache());
     }
 
@@ -58,6 +59,13 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
         if (imageLoader == null)
             imageLoader = ImageFeedController.getInstance().getImageLoader();
         holder.shopProfilePic.setImageUrl("http://192.168.174.1:9080/assets/img/app/feed/test-image.png", imageLoader);
+        holder.shopProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, ShopDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -87,9 +95,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
 class ShopListViewHolder extends RecyclerView.ViewHolder {
     // each data item is just a string in this case
     public TextView shopName;
-    public TextView shopTitle;
     public TextView shopDescription;
-    public LinearLayout shopTab;
     public CircularNetworkImageView shopProfilePic;
 
     public ShopListViewHolder(View v) {
