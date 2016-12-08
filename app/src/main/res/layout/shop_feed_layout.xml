@@ -127,7 +127,7 @@
                 <Button
                     android:layout_gravity="left"
                     android:id="@+id/book_button"
-                    android:text="@string/KnowMoreString"
+                    android:text="@string/BookButtonString"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:layout_width="70dp"
