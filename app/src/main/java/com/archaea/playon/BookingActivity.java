@@ -122,7 +122,7 @@ public class BookingActivity extends FragmentActivity {
                     genLabelerDate();
                     dateAdapter = new BookingCalenderAdapter(labelerDates, (int) firstItemWidthDate);
                     recyclerViewDate.setAdapter(dateAdapter);
-                    dateAdapter.setSelectedItem(dateAdapter.getItemCount() - 1);
+                    dateAdapter.setSelectedItem(1);
                     return true;
                 }
             });
@@ -149,7 +149,6 @@ public class BookingActivity extends FragmentActivity {
 
     private void calculatePositionAndScrollDate(RecyclerView recyclerView) {
         int expectedPositionDate = Math.round((allPixelsDate + paddingDate - firstItemWidthDate) / itemWidthDate);
-
         if (expectedPositionDate == -1) {
             expectedPositionDate = 0;
         } else if (expectedPositionDate >= recyclerView.getAdapter().getItemCount() - 2) {
