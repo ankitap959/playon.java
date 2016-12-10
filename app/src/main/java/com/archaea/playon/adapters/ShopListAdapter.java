@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -15,6 +16,7 @@ import com.archaea.common.CircularNetworkImageView;
 import com.archaea.common.ImageFeedController;
 import com.archaea.models.LruBitmapCache;
 import com.archaea.models.Shop;
+import com.archaea.playon.BookingActivity;
 import com.archaea.playon.R;
 import com.archaea.playon.ShopDetailsActivity;
 
@@ -59,10 +61,19 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListViewHolder>{
         if (imageLoader == null)
             imageLoader = ImageFeedController.getInstance().getImageLoader();
         holder.shopProfilePic.setImageUrl("http://192.168.174.1:9080/assets/img/app/feed/test-image.png", imageLoader);
+
         holder.shopProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, ShopDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.bookServiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, BookingActivity.class);
                 context.startActivity(intent);
             }
         });
@@ -97,11 +108,13 @@ class ShopListViewHolder extends RecyclerView.ViewHolder {
     public TextView shopName;
     public TextView shopDescription;
     public CircularNetworkImageView shopProfilePic;
+    public Button bookServiceButton;
 
     public ShopListViewHolder(View v) {
         super(v);
         shopName = (TextView) v.findViewById(R.id.shop_name);
         shopDescription = (TextView) v.findViewById(R.id.shop_description);
         shopProfilePic = (CircularNetworkImageView) v.findViewById(R.id.profile_picture);
+        bookServiceButton = (Button) v.findViewById(R.id.book_button);
     }
 }

@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/offerings"
-            android:text="Offerings"
+            android:text="ABOUT US"
             android:fontFamily="sans-serif-thin"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
@@ -28,6 +28,15 @@
             android:textSize="13sp" />
 
         <include layout="@layout/item_divider" />
+
+        <TextView
+            android:id="@+id/shop_detail_description"
+            android:fontFamily="sans-serif-thin"
+            android:layout_marginTop="4dp"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="70dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,7 +104,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <!--LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -115,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:isIndicator="true"
-                android:layout_gravity="left"
+                android:layout_gravity="right"
                 android:numStars="5"
                 android:stepSize="0.5"
                 android:rating="3.5"
@@ -123,26 +132,25 @@
                 android:id="@+id/shop_rating_bar"
                 style="?attr/ratingBarStyleSmall"/>
 
-        </LinearLayout>
+        </LinearLayout-->
+
+        <TextView
+            android:id="@+id/shop_location"
+            android:text="Location"
+            android:fontFamily="sans-serif-thin"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="13sp" />
 
         <include layout="@layout/item_divider" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Be first to review this shop"
-            android:textSize="15sp"
-            android:id="@+id/no_reviews"
-            android:gravity="center"
-            android:textStyle="bold"/>
-
-        <android.support.v7.widget.RecyclerView
+        <!--android.support.v7.widget.RecyclerView
             android:id="@+id/shop_review_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"/>
+            android:layout_height="match_parent"/-->
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
