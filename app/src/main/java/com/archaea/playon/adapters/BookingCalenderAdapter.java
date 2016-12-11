@@ -23,7 +23,7 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
     public static final int VIEW_TYPE_ITEM = 2;
     private int paddingWidthDate = 0;
 
-    private int selectedItem = 1;
+    private int selectedItem = -1;
 
     public BookingCalenderAdapter(ArrayList<BookingCalender> dateData, int paddingWidthDate) {
         this.dateDataList = dateData;
@@ -40,7 +40,6 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.calender_feed,
                     parent, false);
-
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
             layoutParams.width = paddingWidthDate;
             view.setLayoutParams(layoutParams);

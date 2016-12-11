@@ -18,12 +18,6 @@ import java.util.ArrayList;
 
 public class BookingActivity extends FragmentActivity {
 
-    private static final int NUM_PAGES = 5;
-
-    /**
-     * The pager widget, which handles animation and allows swiping horizontally to access previous
-     * and next wizard steps.
-     */
     private ViewPager mPager;
 
     /**
@@ -47,21 +41,12 @@ public class BookingActivity extends FragmentActivity {
         setContentView(R.layout.activity_booking);
         getRecyclerViewDate();
         mPager = (ViewPager) findViewById(R.id.service_plans);
+        mPager.setClipToPadding(false);
+        mPager.setPadding(100, 0, 60, 0);
+        mPager.setPageMargin(-10);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
-            // If the user is currently looking at the first step, allow the system to handle the
-            // Back button. This calls finish() on this activity and pops the back stack.
-            super.onBackPressed();
-        } else {
-            // Otherwise, select the previous step.
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
     }
 
     public void getRecyclerViewDate() {
@@ -76,7 +61,7 @@ public class BookingActivity extends FragmentActivity {
             recyclerViewDate.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    recyclerViewDate.smoothScrollToPosition(dateAdapter.getItemCount()-1);
+                    recyclerViewDate.smoothScrollToPosition(0);
                     setDateValue();
                 }
             }, 5000);
@@ -85,7 +70,6 @@ public class BookingActivity extends FragmentActivity {
         ViewTreeObserver vtoDate = recyclerViewDate != null ? recyclerViewDate.getViewTreeObserver() : null;
         if (vtoDate != null) {
             vtoDate.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-
 
                 @Override
                 public boolean onPreDraw() {
@@ -122,7 +106,7 @@ public class BookingActivity extends FragmentActivity {
                     genLabelerDate();
                     dateAdapter = new BookingCalenderAdapter(labelerDates, (int) firstItemWidthDate);
                     recyclerViewDate.setAdapter(dateAdapter);
-                    dateAdapter.setSelectedItem(1);
+                    dateLayoutManager.scrollToPosition(0);
                     return true;
                 }
             });

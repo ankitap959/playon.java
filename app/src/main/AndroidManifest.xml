@@ -44,7 +44,11 @@
         <activity
             android:name=".BookingActivity"
             android:label="@string/title_activity_booking"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OrderConfirmation"
+            android:label="@string/title_activity_order_confirmation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
