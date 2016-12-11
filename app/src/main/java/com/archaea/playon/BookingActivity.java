@@ -1,7 +1,12 @@
 package com.archaea.playon;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -11,6 +16,7 @@ import android.view.ViewTreeObserver;
 
 import com.archaea.animators.ZoomOutPageTransformer;
 import com.archaea.models.BookingCalender;
+import com.archaea.models.Shop;
 import com.archaea.playon.adapters.BookingCalenderAdapter;
 import com.archaea.playon.adapters.ScreenSlidePagerAdapter;
 
@@ -47,6 +53,24 @@ public class BookingActivity extends FragmentActivity {
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+        FloatingActionButton bookingButton = (FloatingActionButton) findViewById(R.id.book_service_booking_page);
+        bookingButton.setImageBitmap(textAsBitmap("Book", 80, Color.WHITE));
+        Shop shop = (Shop) getIntent().getSerializableExtra("shopObject");
+    }
+
+    public static Bitmap textAsBitmap(String text, float textSize, int textColor) {
+        Paint paint = new Paint();
+        paint.setTextSize(textSize);
+        paint.setColor(textColor);
+        paint.setTextAlign(Paint.Align.LEFT);
+        float baseline = -paint.ascent(); // ascent() is negative
+        int width = (int) (paint.measureText(text) + 0.0f); // round
+        int height = (int) (baseline + paint.descent() + 0.0f);
+        Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas(image);
+        canvas.drawText(text, 0, baseline, paint);
+        return image;
     }
 
     public void getRecyclerViewDate() {
