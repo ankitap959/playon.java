@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.archaea.models.BookingCalender;
@@ -27,7 +28,6 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
     public BookingCalenderAdapter(ArrayList<BookingCalender> dateData, int paddingWidthDate) {
         this.dateDataList = dateData;
         this.paddingWidthDate = paddingWidthDate;
-
     }
 
 
@@ -40,7 +40,6 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
         } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.calender_feed,
                     parent, false);
-
             RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
             layoutParams.width = paddingWidthDate;
             view.setLayoutParams(layoutParams);
@@ -57,17 +56,29 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
             holder.month.setText(labelerDate.getMonth());
             holder.tvDate.setVisibility(View.VISIBLE);
             if (position == selectedItem) {
-                holder.tvDate.setTextColor(Color.parseColor("#76FF03"));
+                holder.tvDate.setTextColor(holder.tvDate.getResources().getColor(R.color.colorPrimary));
+                holder.day.setTextColor(holder.day.getResources().getColor(R.color.colorPrimary));
+                holder.month.setTextColor(holder.month.getResources().getColor(R.color.colorPrimary));
+                holder.calenderFeedItem.setBackgroundColor(Color.WHITE);
+                holder.tvDate.setBackgroundColor(Color.WHITE);
+                holder.day.setBackgroundColor(Color.WHITE);
+                holder.month.setBackgroundColor(Color.WHITE);
             } else {
                 holder.tvDate.setTextColor(Color.WHITE);
+                holder.day.setTextColor(Color.WHITE);
+                holder.month.setTextColor(Color.WHITE);
+                holder.calenderFeedItem.setBackgroundColor(holder.calenderFeedItem.getResources().getColor(R.color.colorPrimary));
+                holder.tvDate.setBackgroundColor(holder.tvDate.getResources().getColor(R.color.colorPrimary));
+                holder.day.setBackgroundColor(holder.day.getResources().getColor(R.color.colorPrimary));
+                holder.month.setBackgroundColor(holder.month.getResources().getColor(R.color.colorPrimary));
             }
         } else {
             holder.tvDate.setVisibility(View.INVISIBLE);
         }
     }
 
-    public void setSelectedItem(int selecteditem) {
-        this.selectedItem = selecteditem;
+    public void setSelectedItem(int selectedItem) {
+        this.selectedItem = selectedItem;
         notifyDataSetChanged();
     }
 
@@ -95,12 +106,14 @@ public class BookingCalenderAdapter extends RecyclerView.Adapter<BookingCalender
         public TextView tvDate;
         public TextView day;
         public TextView month;
+        public LinearLayout calenderFeedItem;
 
         public DateViewHolder(View itemView) {
             super(itemView);
-            tvDate = (TextView) itemView.findViewById(R.id.shopName);
+            tvDate = (TextView) itemView.findViewById(R.id.date);
             day = (TextView) itemView.findViewById(R.id.day);
             month = (TextView) itemView.findViewById(R.id.month);
+            calenderFeedItem = (LinearLayout) itemView.findViewById(R.id.calender_feed_item);
         }
     }
 }

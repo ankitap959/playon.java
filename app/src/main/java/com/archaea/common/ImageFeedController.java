@@ -36,7 +36,6 @@ public class ImageFeedController extends Application{
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
         }
-
         return mRequestQueue;
     }
 
@@ -46,7 +45,6 @@ public class ImageFeedController extends Application{
             getLruBitmapCache();
             mImageLoader = new ImageLoader(this.mRequestQueue, mLruBitmapCache);
         }
-
         return this.mImageLoader;
     }
 
