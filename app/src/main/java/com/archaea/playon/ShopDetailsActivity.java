@@ -15,6 +15,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.archaea.models.LruBitmapCache;
+import com.archaea.models.Shop;
 
 public class ShopDetailsActivity extends AppCompatActivity {
 
@@ -39,8 +40,9 @@ public class ShopDetailsActivity extends AppCompatActivity {
         NetworkImageView coverPhoto = (NetworkImageView) findViewById(R.id.shop_cover_photo);
         coverPhoto.setImageUrl("http://192.168.174.1:9080/assets/img/app/typography/typo03.png", imageLoader);
         coverPhoto.setScaleType(ImageView.ScaleType.FIT_XY);
+        Shop shop = (Shop) getIntent().getSerializableExtra("shopObject");
         TextView shopDetailedDescription = (TextView) findViewById(R.id.shop_detail_description);
-        shopDetailedDescription.setText("hgrhgh jkrhgrfhn rehgf kjhgdfehgfi uiedghioufheio uioehfouewhfo oeuihfoiedhoieolf ouiehfoehoi");
+        shopDetailedDescription.setText(shop.getShopDescription());
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.shop_details_toolbar);
         collapsingToolbarLayout.setTitle("MotoHub Test Account");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
