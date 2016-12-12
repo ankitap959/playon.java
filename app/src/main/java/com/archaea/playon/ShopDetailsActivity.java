@@ -1,6 +1,5 @@
 package com.archaea.playon;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -18,8 +17,6 @@ import com.archaea.models.LruBitmapCache;
 import com.archaea.models.Shop;
 
 public class ShopDetailsActivity extends AppCompatActivity {
-
-    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class ShopDetailsActivity extends AppCompatActivity {
         TextView shopDetailedDescription = (TextView) findViewById(R.id.shop_detail_description);
         shopDetailedDescription.setText(shop.getShopDescription());
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.shop_details_toolbar);
-        collapsingToolbarLayout.setTitle("MotoHub Test Account");
+        collapsingToolbarLayout.setTitle(shop.getShopName());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -2,6 +2,8 @@ package com.archaea.serviceplans;
 
 import android.support.v4.app.Fragment;
 
+import com.archaea.models.ServicePlan;
+
 import java.util.ArrayList;
 
 /**
@@ -16,24 +18,49 @@ public class ServicePlanFactory {
 
 class ServicePlans {
 
-    private ServicePlans servicePlans = new ServicePlans();
+    private static ServicePlans servicePlans = new ServicePlans();
     private ArrayList<Fragment> servicePlanFragments;
 
     public ArrayList<Fragment> getServicePlanFragments() {
         return servicePlanFragments;
     }
 
-    public void setServicePlanFragments(ArrayList<Fragment> servicePlanFragments) {
-        this.servicePlanFragments = servicePlanFragments;
-    }
-
     private ServicePlans() {
         this.servicePlanFragments = new ArrayList<>();
-        this.servicePlanFragments.add(new ServicePlanFragment());
+        this.servicePlanFragments.add(ServicePlanFragment.newInstance(generalServicePlan()));
+        this.servicePlanFragments.add(ServicePlanFragment.newInstance(periodicServicePlan()));
+        this.servicePlanFragments.add(ServicePlanFragment.newInstance(accidentalServicePlan()));
+        this.servicePlanFragments.add(ServicePlanFragment.newInstance(customServicePlan()));
     }
 
     public static ServicePlans getInstance() {
-        ServicePlans servicePlans =  new ServicePlans();
-        return servicePlans.servicePlans;
+        if (servicePlans == null) {
+            servicePlans = new ServicePlans();
+        }
+        return servicePlans;
+    }
+
+    private ServicePlan generalServicePlan()
+    {
+        return new ServicePlan(ServicePlanConstants.GENERAL_SERVICE_DESCRIPTION, ServicePlanConstants.GENERAL_SERVICE_NAME
+                , ServicePlanConstants.GENERAL_SERVICE_PLAN);
+    }
+
+    private ServicePlan periodicServicePlan()
+    {
+        return new ServicePlan(ServicePlanConstants.PERIODIC_SERVICE_DESCRIPTION, ServicePlanConstants.PERIODIC_SERVICE_NAME,
+                ServicePlanConstants.PERIODIC_SERVICE_PLAN);
+    }
+
+    private ServicePlan accidentalServicePlan()
+    {
+        return new ServicePlan(ServicePlanConstants.ACCIDENTAL_SERVICE_DESCRIPTION, ServicePlanConstants.ACCIDENTAL_SERVICE_NAME,
+                ServicePlanConstants.ACCIDENTAL_SERVICE_PLAN);
+    }
+
+    private ServicePlan customServicePlan()
+    {
+        return new ServicePlan(ServicePlanConstants.CUSTOM_SERVICE_DESCRIPTION, ServicePlanConstants.CUSTOM_SERVICE_NAME,
+                ServicePlanConstants.CUSTOM_SERVICE_PLAN);
     }
 }

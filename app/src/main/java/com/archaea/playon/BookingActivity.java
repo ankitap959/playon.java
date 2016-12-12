@@ -19,6 +19,7 @@ import com.archaea.models.BookingCalender;
 import com.archaea.models.Shop;
 import com.archaea.playon.adapters.BookingCalenderAdapter;
 import com.archaea.playon.adapters.ScreenSlidePagerAdapter;
+import com.archaea.serviceplans.ServicePlanFactory;
 
 import java.util.ArrayList;
 
@@ -51,7 +52,7 @@ public class BookingActivity extends FragmentActivity {
         mPager.setPadding(100, 0, 60, 0);
         mPager.setPageMargin(-10);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), ServicePlanFactory.getAllServicePlanFragments());
         mPager.setAdapter(mPagerAdapter);
         FloatingActionButton bookingButton = (FloatingActionButton) findViewById(R.id.book_service_booking_page);
         bookingButton.setImageBitmap(textAsBitmap("Book", 80, Color.WHITE));
