@@ -23,4 +23,9 @@
     <string name="BookButtonString">Book</string>
     <string name="KnowMoreString">Book</string>
     <string name="title_activity_order_confirmation">OrderConfirmation</string>
+    <string name="title_activity_test_activity_to">TestActivityTo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_sometest">sometest</string>
 </resources>

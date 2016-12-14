@@ -1,5 +1,6 @@
 package com.archaea.playon;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewTreeObserver;
 
 import com.archaea.animators.ZoomOutPageTransformer;
@@ -55,8 +57,25 @@ public class BookingActivity extends FragmentActivity {
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), ServicePlanFactory.getAllServicePlanFragments());
         mPager.setAdapter(mPagerAdapter);
         FloatingActionButton bookingButton = (FloatingActionButton) findViewById(R.id.book_service_booking_page);
-        bookingButton.setImageBitmap(textAsBitmap("Book", 80, Color.WHITE));
-        Shop shop = (Shop) getIntent().getSerializableExtra("shopObject");
+        bookingButton.setImageBitmap(textAsBitmap("Book", 150, Color.WHITE));
+        // TODO data to order confirmation page.
+        final Shop shop = (Shop) getIntent().getSerializableExtra("shopObject");
+        bookingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopDetailsActivity.class);
+                intent.putExtra("shopObject", shop);
+                getApplicationContext().startActivity(intent);
+            }
+        });
+        bookingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShopDetailsActivity.class);
+                intent.putExtra("shopObject", shop);
+                getApplicationContext().startActivity(intent);
+            }
+        });
     }
 
     public static Bitmap textAsBitmap(String text, float textSize, int textColor) {
@@ -68,7 +87,6 @@ public class BookingActivity extends FragmentActivity {
         int width = (int) (paint.measureText(text) + 0.0f); // round
         int height = (int) (baseline + paint.descent() + 0.0f);
         Bitmap image = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-
         Canvas canvas = new Canvas(image);
         canvas.drawText(text, 0, baseline, paint);
         return image;
