@@ -8,17 +8,13 @@ import java.io.Serializable;
 public class ServicePlan implements Serializable{
 
     public String planName;
-    private int type;
     public String  planType;
-    public String  planTitle;
     public String planDescription;
 
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
+    public ServicePlan(String planDescription, String planName, String planType) {
+        this.planDescription = planDescription;
+        this.planName = planName;
+        this.planType = planType;
     }
 
     public String getPlanDescription() {
@@ -35,14 +31,6 @@ public class ServicePlan implements Serializable{
 
     public void setPlanName(String planName) {
         this.planName = planName;
-    }
-
-    public String getPlanTitle() {
-        return planTitle;
-    }
-
-    public void setPlanTitle(String planTitle) {
-        this.planTitle = planTitle;
     }
 
     public String getPlanType() {

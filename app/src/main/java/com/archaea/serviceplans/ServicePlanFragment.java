@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.archaea.models.ServicePlan;
 import com.archaea.playon.R;
@@ -20,29 +21,25 @@ import com.archaea.playon.R;
 public class ServicePlanFragment extends Fragment {
 
     private ServicePlan servicePlan;
-    private static final String SERVICE_PLAN = "service_plan";
 
-    public ServicePlanFragment() {}
+    public ServicePlanFragment() {
+
+    }
 
     public static ServicePlanFragment newInstance(ServicePlan servicePlan) {
         ServicePlanFragment fragment = new ServicePlanFragment();
-        Bundle args = new Bundle();
-        args.putSerializable(SERVICE_PLAN, servicePlan);
-        fragment.setArguments(args);
+        fragment.servicePlan = servicePlan;
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            this.servicePlan = (ServicePlan) getArguments().getSerializable(SERVICE_PLAN);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_service_plans, container, false);
+        View view = inflater.inflate(R.layout.fragment_service_plans, container, false);
+        TextView servicePlanName = (TextView) view.findViewById(R.id.service_plan_name);
+        TextView serviceDescription = (TextView) view.findViewById(R.id.service_description);
+        servicePlanName.setText(servicePlan.getPlanName());
+        serviceDescription.setText(servicePlan.getPlanDescription());
+        return view;
     }
 }

@@ -48,7 +48,7 @@
         <activity
             android:name=".OrderConfirmation"
             android:label="@string/title_activity_order_confirmation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
