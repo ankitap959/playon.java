@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,186 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.archaea.playon.OrderConfirmation"
-    tools:showIn="@layout/activity_order_confirmation">
+    tools:showIn="@layout/activity_order_confirmation"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/shop_feed_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/phone_number_label"
+            android:fontFamily="sans-serif-thin"
+            android:layout_margin="1dp"
+            android:textSize="15sp"
+            android:text="Phone Number"
+            android:textColor="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#e0e0e0"/>
+
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="961912789709"
+            android:hint="Phone Number"
+            android:inputType="phone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/shop_feed_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vehicle_label"
+            android:fontFamily="sans-serif-thin"
+            android:layout_margin="1dp"
+            android:textSize="15sp"
+            android:text="Vehicle"
+            android:textColor="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#e0e0e0"/>
+
+        <Spinner
+            android:id="@+id/vehicle_list_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/shop_feed_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/order_details_label"
+            android:fontFamily="sans-serif-thin"
+            android:layout_margin="1dp"
+            android:textSize="15sp"
+            android:text="Order Details"
+            android:textColor="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#e0e0e0"/>
+
+        <TextView
+            android:id="@+id/order_details"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:fontFamily="sans-serif-thin"
+            android:textStyle="bold"
+            android:text="Periodic Service"
+            android:inputType="phone" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/shop_feed_rounded_corner"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/comments_label"
+            android:fontFamily="sans-serif-thin"
+            android:layout_marginTop="6dp"
+            android:textSize="15sp"
+            android:text="Comments"
+            android:textColor="#000000"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.6dp"
+            android:background="#e0e0e0"/>
+
+        <EditText
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|left"
+            android:maxLines="10"
+            android:hint="Anything to add ? (Optional)"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:scrollbars="vertical"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/confirm_booking_button"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/confirm_booking_button"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

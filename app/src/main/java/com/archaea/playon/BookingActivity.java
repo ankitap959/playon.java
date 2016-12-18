@@ -63,17 +63,9 @@ public class BookingActivity extends FragmentActivity {
         bookingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ShopDetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OrderConfirmation.class);
                 intent.putExtra("shopObject", shop);
-                getApplicationContext().startActivity(intent);
-            }
-        });
-        bookingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ShopDetailsActivity.class);
-                intent.putExtra("shopObject", shop);
-                getApplicationContext().startActivity(intent);
+                startActivity(intent);
             }
         });
     }
