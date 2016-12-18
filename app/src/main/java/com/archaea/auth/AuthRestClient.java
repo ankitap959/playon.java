@@ -13,6 +13,7 @@ import com.archaea.common.ExceptionHandler;
 import com.archaea.common.MotoHubHeaderBuilder;
 import com.archaea.common.MotoHubUrlBuilder;
 import com.archaea.models.AuthSession;
+import com.archaea.models.Whoami;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,6 +60,11 @@ public abstract class AuthRestClient implements IAuthRestClient {
         RequestQueue requestQueue = Volley.newRequestQueue(currentActivity);
         requestQueue.add(authenticateRequest);
         return authSession;
+    }
+
+    @Override
+    public Whoami getWhoamiResponse() {
+        return null;
     }
 
     public abstract void onSuccess();
