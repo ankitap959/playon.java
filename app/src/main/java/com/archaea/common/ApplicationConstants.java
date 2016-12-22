@@ -14,5 +14,6 @@ public interface ApplicationConstants {
     public static final String API_VERSION = "/api/v1_0";
     public static final String SHOPS = "/shops";
     public static final String AUTHENTICATE_RUNTIME_USERS = "/authenticate";
+    public static final String WHOAMI = "/whoami";
 
 }

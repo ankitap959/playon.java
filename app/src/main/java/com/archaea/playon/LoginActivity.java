@@ -27,6 +27,7 @@ import com.archaea.auth.AuthRestClient;
 import com.archaea.common.ExceptionHandler;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,9 +100,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else {
             AuthRestClient authRestClient = new AuthRestClient() {
                 @Override
-                public void onSuccess() {
-                    Intent mainActivityIntent = new Intent(context, MainActivity.class);
-                    startActivity(mainActivityIntent);
+                public void onSuccess(JSONObject response0) {
+                    AuthRestClient whoamiRestClient = new AuthRestClient() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+                            Intent mainActivityIntent = new Intent(context, MainActivity.class);
+                            startActivity(mainActivityIntent);
+                        }
+
+                        @Override
+                        public void onFailure() {
+
+                        }
+                    };
                 }
 
                 @Override

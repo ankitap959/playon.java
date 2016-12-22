@@ -13,8 +13,10 @@ import com.archaea.common.ExceptionHandler;
 import com.archaea.common.MotoHubHeaderBuilder;
 import com.archaea.common.MotoHubUrlBuilder;
 import com.archaea.models.AuthSession;
+import com.archaea.models.Vehicle;
 import com.archaea.models.Whoami;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,7 +41,7 @@ public abstract class AuthRestClient implements IAuthRestClient {
                 try {
                     AuthSession.putSessionInfoToAuthSession(response);
                     authSession = AuthSession.getAuthSession();
-                    onSuccess();
+                    onSuccess(response);
                 } catch (JSONException e) {
                     ExceptionHandler.handleExceptions(e);
                 }
@@ -63,12 +65,41 @@ public abstract class AuthRestClient implements IAuthRestClient {
     }
 
     @Override
-    public Whoami getWhoamiResponse() {
-        return null;
+    public void getWhoamiResponse(Activity currentActivity) {
+        JsonObjectRequest whoamiRequest = new JsonObjectRequest(Request.Method.GET,
+                MotoHubUrlBuilder.getWhoamiUrl(), new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Whoami.getInstance().setCurrentUser(AuthSession.getAuthSession().getCurrentUser());
+                try {
+                    JSONArray vehicles = response.getJSONArray("vehicles");
+                    for (int i = 0; i < vehicles.length(); i++)
+                    {
+                        Whoami.getInstance().getVehicles().add(Vehicle.vehicleJsonToObjectConverter(vehicles.getJSONObject(i)));
+                    }
+                } catch (JSONException e) {
+                    ExceptionHandler.handleExceptions(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                ExceptionHandler.handleExceptions(error);
+                onFailure();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                MotoHubHeaderBuilder motoHubHeaderBuilder = new MotoHubHeaderBuilder();
+                motoHubHeaderBuilder.addXMotoHubAuthHeader();
+                return motoHubHeaderBuilder.getHeaders();
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(currentActivity);
+        requestQueue.add(whoamiRequest);
     }
 
-    public abstract void onSuccess();
+    public abstract void onSuccess(JSONObject response);
 
     public abstract void onFailure();
-
 }
