@@ -14,4 +14,9 @@ public class MotoHubUrlBuilder {
         return ApplicationConstants.BASE_URL + ApplicationConstants.API_VERSION +
                 ApplicationConstants.AUTHENTICATE_RUNTIME_USERS;
     }
+
+    public static String getWhoamiUrl() {
+        return ApplicationConstants.BASE_URL + ApplicationConstants.API_VERSION +
+                ApplicationConstants.WHOAMI;
+    }
 }

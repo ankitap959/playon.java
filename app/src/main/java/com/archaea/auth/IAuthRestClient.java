@@ -11,4 +11,6 @@ public interface IAuthRestClient {
 
     public AuthSession authenticate(String email, String password, Activity currentActivity) throws Exception;
 
+    public void getWhoamiResponse(Activity currentActivity);
+
 }

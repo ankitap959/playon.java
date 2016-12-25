@@ -15,4 +15,8 @@ public class AuthMockRestClient implements  IAuthRestClient{
         return MockAuthenticate.authenticate(email, password);
     }
 
+    @Override
+    public void getWhoamiResponse(Activity currentActivity) {
+
+    }
 }
