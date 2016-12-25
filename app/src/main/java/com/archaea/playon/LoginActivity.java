@@ -113,6 +113,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                         }
                     };
+                    whoamiRestClient.getWhoamiResponse((Activity) context);
                 }
 
                 @Override

@@ -80,6 +80,7 @@ public abstract class AuthRestClient implements IAuthRestClient {
                 } catch (JSONException e) {
                     ExceptionHandler.handleExceptions(e);
                 }
+                onSuccess(response);
             }
         }, new Response.ErrorListener() {
             @Override

@@ -54,10 +54,10 @@ public class Vehicle {
 
     public static Vehicle vehicleJsonToObjectConverter(JSONObject vehicleJson) throws JSONException {
         JSONObject supportedVehicle = vehicleJson.getJSONObject("supported_vehicle");
-        return new Vehicle(new SupportedVehicles(supportedVehicle.getString("supportedVehicleCompany"),
-                supportedVehicle.getString("supportedVehicleFuelVariant"), supportedVehicle.getString("supportedVehicleModel"),
-                supportedVehicle.getString("supportedVehicleName"), supportedVehicle.getString("supportedVehicleReleaseDate"),
-                supportedVehicle.getString("supportedVehicleSubModel")), vehicleJson.getString("vehicle_guid"),
+        return new Vehicle(new SupportedVehicles(supportedVehicle.getString("supported_vehicle_company"),
+                supportedVehicle.getString("supported_vehicle_fuel_variant"), supportedVehicle.getString("supported_vehicle_model"),
+                supportedVehicle.getString("supported_vehicle_name"), supportedVehicle.getString("supported_vehicle_releasedate"),
+                supportedVehicle.getString("supported_vehicle_sub_model")), vehicleJson.getString("vehicle_guid"),
                 vehicleJson.getInt("vehicle_id"), vehicleJson.getString("vehicle_registration_no"));
     }
 }

@@ -12,7 +12,7 @@ public class Whoami {
     private static Whoami whoami = new Whoami();
 
     private Whoami(){
-
+        this.vehicles = new ArrayList<>();
     }
 
     public static Whoami getInstance() {
@@ -21,10 +21,10 @@ public class Whoami {
         }
         return whoami;
     }
-
     public User getCurrentUser() {
         return currentUser;
     }
+
 
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
