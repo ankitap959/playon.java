@@ -37,4 +37,12 @@ public class Whoami {
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
+
+    public ArrayList<String> getVehicleNameList() {
+        ArrayList<String> vehicleNames = new ArrayList<>();
+        for (Vehicle vehicle: vehicles) {
+            vehicleNames.add(vehicle.getVehicleRegistrationNo());
+        }
+        return vehicleNames;
+    }
 }
