@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#01676B</color>
+    <color name="colorPrimaryDark">#028489</color>
+    <color name="colorAccent">#00db15</color>
+    <color name="colorImageBorder">#00FA9A</color>
+    <color name="shopFeedColor">#cee094</color>
+    <color name="shopFeedItemBackgroundColor">#ffffff</color>
+    <color name="shopFeedItemBorderColor">#ffffff</color>
+    <color name="duskYellow">#f2b01e</color>
+    <color name="lightGray">#afafaf</color>
 </resources>
