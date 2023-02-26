@@ -1,5 +1,8 @@
 package com.archaea.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by vizsatiz on 25-09-2016.
  */
@@ -8,25 +11,11 @@ public class User {
     private String email;
     private String userGuid;
     private String username;
-    private String profilePicLink;
-    private String facebookToken;
-    private String claimsToken;
 
-    public User(String email, String userGuid, String facebookToken, String profilePicLink, String username, String claimsToken) {
+    public User(String email, String userGuid, String username) {
         this.email = email;
         this.userGuid = userGuid;
-        this.facebookToken = facebookToken;
-        this.profilePicLink = profilePicLink;
         this.username = username;
-        this.claimsToken = claimsToken;
-    }
-
-    public String getClaimsToken() {
-        return claimsToken;
-    }
-
-    public void setClaimsToken(String claimsToken) {
-        this.claimsToken = claimsToken;
     }
 
     public String getUserGuid() {
@@ -45,14 +34,6 @@ public class User {
         this.email = email;
     }
 
-    public String getFacebookToken() {
-        return facebookToken;
-    }
-
-    public void setFacebookToken(String facebookToken) {
-        this.facebookToken = facebookToken;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -61,11 +42,9 @@ public class User {
         this.username = username;
     }
 
-    public String getProfilePicLink() {
-        return profilePicLink;
-    }
-
-    public void setProfilePicLink(String profilePicLink) {
-        this.profilePicLink = profilePicLink;
+    public static User userJsonToObjectConverter(JSONObject userJsonObject) throws JSONException {
+        return new User(userJsonObject.getString("email"),
+                        userJsonObject.getString("user_guid"),
+                        userJsonObject.getString("username"));
     }
 }

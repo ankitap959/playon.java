@@ -1,5 +1,6 @@
 package com.archaea.mockdata;
 
+import com.archaea.models.AuthSession;
 import com.archaea.models.User;
 
 import org.json.JSONObject;
@@ -13,16 +14,17 @@ public class MockAuthenticate {
             "iYWRtaW4iOnRydWV9.EkN-DOsnsuRjRO6BxXemmJDm3HbxrbRzXglbN2S4sOkopdU4IsDxTI8jO19W_A4K8ZPJijNLis4EZsHeY559a4DFOd50_OqgHGu" +
             "ERTqYZyuhtF39yxJPAjUESwxk2J5k_4zM3O-vtd1Ghyo4IbqKKSy6J9mTniYJPenn5-HIirE";
 
-    public static User authenticate(String email, String password) throws Exception {
+    public static AuthSession authenticate(String email, String password) throws Exception {
         JSONObject user = MockUsersData.getUserByEmail(email, password);
         if(user == null){
             throw new Exception("[Unauthorized] Username or Password is incorrect");
         }
-        return new User(user.getString("email"),
-                user.getString("user_guid"),
-                user.getString("facebook_token"),
-                user.getString("profile_pic_link"),
-                user.getString("username"),
-                jwt_sessions);
+        User userObject =  new User(user.getString("email"),
+                        user.getString("user_guid"),
+                        user.getString("username"));
+        AuthSession authSession = AuthSession.getAuthSession();
+        authSession.setCurrentUser(userObject);
+        authSession.setxMotoHubAuthorization(jwt_sessions);
+        return authSession;
     }
 }
